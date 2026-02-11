@@ -1,9 +1,14 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue';
+import NotificationToast from './components/NotificationToast.vue';
+const message = ref('Image uploaded successfully');
+const clearNotification = () => {
+    message.value = '';
+}
 </script>
 
 <template>
-    <HelloWorld msg="You did it!" />
+    <NotificationToast status="success" :message="message" @clear-notification="clearNotification"/>
 </template>
 
 <style scoped>
